@@ -10,7 +10,7 @@
 <body class="bg-light">
     <div class="container vh-100 d-flex justify-content-center align-items-center">
         <div class="position-fixed">
-            <button class="btn btn-primary fw-bold font-weight-bold" onclick="showMessages()">Klik Aku</button>
+            <button class="btn btn-primary fw-bold font-weight-bold px-3 py-2" onclick="showMessages()">Klik Aku</button>
         </div>
     </div>
 
@@ -46,7 +46,7 @@
                     });
                 } else {
                     Swal.fire({
-                        title: 'Pesan untuk Aku',
+                        title: 'Pesan untuk Saya',
                         input: 'textarea',
                         inputPlaceholder: 'Tulis pesanmu disini...',
                         showCancelButton: true,
@@ -70,6 +70,15 @@
                                 const linkWhatsApp = 'https://wa.me/6285933648537?text=' + encodeURIComponent(message);
                                 window.open(linkWhatsApp, '_blank');
                             }
+                        } else if (result.dismiss === Swal.DismissReason.cancel) {
+                            setTimeout(() => {
+                                Swal.fire({
+                                    title: 'Kenapa hayo kok batal?',
+                                    icon: 'question',
+                                    iconColor: '#01BCF3',
+                                    confirmButtonColor: '#01BCF3',
+                                });
+                            }, 100);
                         }
                     });
                 }
